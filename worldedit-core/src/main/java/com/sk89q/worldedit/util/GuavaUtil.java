@@ -17,24 +17,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.sk89q.worldedit.math.convolution;
+package com.sk89q.worldedit.util;
 
-/**
- * A linear Kernel generator (all cells weight the same)
- */
-public class LinearKernel extends Kernel {
+import javax.annotation.Nullable;
 
-    public LinearKernel(int radius) {
-        super(radius * 2 + 1, radius * 2 + 1, createKernel(radius));
+import static com.google.common.base.Preconditions.checkNotNull;
+
+public final class GuavaUtil {
+
+    private GuavaUtil() {}
+
+    public static <T> T firstNonNull(@Nullable T first, @Nullable T second) {
+        return first != null ? first : checkNotNull(second);
     }
-
-    private static float[] createKernel(int radius) {
-        int diameter = radius * 2 + 1;
-        float[] data = new float[diameter * diameter];
-
-        for (int i = 0; i < data.length; data[i++] = 1.0f / data.length);
-
-        return data;
-    }
-
 }

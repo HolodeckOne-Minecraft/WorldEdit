@@ -8,17 +8,17 @@ buildscript {
 }
 
 plugins {
-    id 'org.spongepowered.plugin' version '0.6'
+    id 'org.spongepowered.plugin' version '0.8.1'
 }
 
 dependencies {
     compile project(':worldedit-core')
-    compile 'org.spongepowered:spongeapi:6.0.0-SNAPSHOT'
+    compile 'org.spongepowered:spongeapi:7.0.0-SNAPSHOT'
     testCompile group: 'org.mockito', name: 'mockito-core', version:'1.9.0-rc1'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 sponge {
     plugin {
